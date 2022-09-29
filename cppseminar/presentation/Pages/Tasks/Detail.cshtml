@@ -16,7 +16,8 @@
 {
     <div>
         <h4>@Model.TaskDetail.Name</h4>
-        <p><em>Deadline is: <strong>@Model.TaskDetail.Ends</strong></em> </p>
+        <p><em>Deadline is: <strong id="end-time">@Model.TaskDetail.Ends</strong></em> </p>
+        <script>document.getElementById("end-time").innerText = new Intl.DateTimeFormat("sk", { dateStyle: 'full', timeStyle: 'long' }).format(Date.parse(document.getElementById("end-time").innerText))</script>
         <p>Current time is @DateTime.UtcNow</p>
         <div class="p-3 my-2 border bg-light markdown">
             @Model.TaskDetail.Description
